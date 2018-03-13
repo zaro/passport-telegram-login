@@ -1,0 +1,19 @@
+{
+  "name": "passport-telegram-login",
+  "version": "0.1.0",
+  "description": "Passport authentication strategy for the Telegram Login Widget",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Svetlozar Argirov <zarrro@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "hbs": "^4.0.1",
+    "passport": "^0.4.0",
+    "passport-strategy": "^1.0.0"
+  }
+}
