@@ -9,20 +9,17 @@
 
   <script async
     src="https://telegram.org/js/telegram-widget.js?4"
-    data-telegram-login="the_frying_pan_bot"
+    data-telegram-login="{{ config.botName }}"
     data-size="large"
-    data-auth-url="/auth/telegram"
+    data-auth-url="/auth/telegram-login/callback"
     data-request-access="write"></script>
-  <script type="text/javascript">
-    function onTelegramAuth(user) {
-      alert('Logged in as ' + user.first_name + ' ' + user.last_name + ' (' + user.id + (user.username ? ', @' + user.username : '') + ')');
-    }
-  </script>
 
   <div>
     Current user id : {{ user.id }} <br>
-    Current first_name : {{ user.first_name }}  <br>
-    Current last_name : {{ user.last_name }}  <br>
+    Current user name : {{ user.displayName }} <br>
+    Current user profile : {{ user.profileUrl }} <br>
+    Current first_name : {{ user.name.givenName }}  <br>
+    Current last_name : {{ user.name.familyName }}  <br>
     Current username : {{ user.username }}  <br>
     Current authdate : {{ user.auth_date }}  <br>
   </div>

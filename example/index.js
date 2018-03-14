@@ -4,6 +4,7 @@ var session = require("express-session"),
 const app = express()
 const passport = require('passport');
 const TelegramStrategy = require('../lib/index').Strategy;
+const config = require('./config');
 
 passport.use(new TelegramStrategy({
   botToken: '535151433:AAGOTcJHKJrlwZtPs8iCggQcEBlf3Bgrpvk'
@@ -38,9 +39,9 @@ app.use(passport.session());
 app.get('/', (req, res) => {
   res.render('index', {
     user: req.user,
-    something: "else",
+    config,
   });
 });
-app.get('/auth/telegram', passport.authenticate('telegram-login', { session: true,  successRedirect: '/' }))
+app.get('/auth/telegram-login/callback', passport.authenticate('telegram-login', { session: true,  successRedirect: '/' }))
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'))
